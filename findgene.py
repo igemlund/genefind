@@ -16,7 +16,7 @@ with open("nissle_genom.txt","r") as file:
             else: 
                 potential_list.append(gene_seq[gene_index-1-length:gene_index-1])
                 i = gene_index+1
-    print (pre_gene_sequence("tttcgccaaaatc",20))
+    
  
     
     def frequency(sequence):
@@ -30,7 +30,19 @@ with open("nissle_genom.txt","r") as file:
                 i = gene_index+1
                 n+=1
                 
-    print(frequency("tttcgccaa"))
+    def freq_pre_gene(gene,length):
+        potential_list = pre_gene_sequence(gene,length)
+        freq_list = []
+        if type(potential_list) == "list":
+            for i in potential_list:
+                freq_list.append(frequency(i))
+            return potential_list, freq_list
+        else:
+            return "can not find the gene sequence"
+        
+    print (freq_pre_gene("tttaaaatatq",10))
+    
+
                 
         
         
